@@ -1,16 +1,16 @@
-# Challenge:
+# constructor (rev)
 
-## rev/constructor
+Credit: Zerotistic
 
-### Credit: Zerotistic
+## Description
 
-"Heard of constructor?"
+Heard of constructor?
 
-### Downloads:
+## Downloads
 
 [constructor.tar.gz](https://github.com/jasperjjhe/Capture-the-Flag/blob/0d36de7207c600e87faa2dcba42eb955f6c3f629/idek-2025/constructor.tar.gz)
 
-# Approach:
+## Approach:
 
 Just to cover my bases, I started by just opening the file in Notepad. As suspected, this yielded nothing but gibberish, so I turned to PowerShell and booted up Windows Subsystem for Linux (WSL).
 
