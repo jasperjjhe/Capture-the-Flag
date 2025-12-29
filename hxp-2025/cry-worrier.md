@@ -4,8 +4,6 @@ _Cryptography, Zajebiste_
 
 Credit: yyyyyyy
 
-Difficulty Estimate: easy
-
 ## Description
 The good thing about making mistakes is that you can learn from your errors.
 
