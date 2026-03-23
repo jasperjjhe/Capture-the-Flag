@@ -25,7 +25,7 @@ So the flag is a GIF sitting in `/srv/http/uploads/admin/`, but with a randomize
 
 Looking at the Apache config:
 
-```dsl
+```
     Alias /browse /srv/http/uploads
     <Directory /srv/http/uploads>
         Options +Indexes
