@@ -11,7 +11,7 @@ funny touhou reference
 
 ## Downloads
 
-
+[bad-apple](https://github.com/jasperjjhe/Capture-the-Flag/tree/main/tamuctf-2026/downloads)
 
 ## Approach
 
