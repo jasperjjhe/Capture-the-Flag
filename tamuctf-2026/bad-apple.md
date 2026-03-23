@@ -11,14 +11,14 @@ funny touhou reference
 
 ## Downloads
 
-
+[bad-apple](https://github.com/jasperjjhe/Capture-the-Flag/tree/main/tamuctf-2026/downloads)
 
 ## Approach
 
 First thing I did was just try running the app and poking around. It plays the Bad Apple!! animation in ASCII-art style using extracted GIF frames...cute, but not immediately useful. Time to read the source.
 
 The Dockerfile immediately gave away the flag's location:
-```
+```dsl
 CMD ["sh", "-c", "HEX=$(openssl rand -hex 16) && mv /srv/http/uploads/admin/flag.gif /srv/http/uploads/admin/$HEX-flag.gif ..."]
 ```
 So the flag is a GIF sitting in `/srv/http/uploads/admin/`, but with a randomized 16-byte hex prefix we can't guess. We need to find the filename before we can do anything with it.
@@ -47,7 +47,7 @@ Looking at the Apache config:
 
 Now we have the filename but can't download the `.gif` directly without credentials. The obvious next thought was: does the app ever touch these files server-side without going through Apache's auth layer? Looking at the `/convert` endpoint:
 
-```
+```python
 @app.route('/convert')
 def convert():
     user_id = request.args.get('user_id', 'anonymous')
@@ -76,7 +76,7 @@ It just builds a filesystem path and reads it directly with no auth check whatso
 The server happily read the protected GIF and ran it through ffmpeg. Now we just needed to retrieve the output.
 
 `extract_frames` saves everything to `/srv/http/static/frames/<user_id>/<gif_name>/`, which is served as a public static directory. It saves the individual PNG frames **and** a reconstructed `output.gif` midway through processing:
-```
+```python
     cmd = [
         'ffmpeg', '-i', input_path,
         '-i', f'{output_dir}/palette.png',
