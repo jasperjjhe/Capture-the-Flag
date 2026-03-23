@@ -9,7 +9,7 @@ Heard of constructor?
 
 ## Download
 
-[constructor.tar.gz](https://github.com/jasperjjhe/Capture-the-Flag/blob/0d36de7207c600e87faa2dcba42eb955f6c3f629/idek-2025/constructor.tar.gz)
+[constructor.tar.gz](https://github.com/jasperjjhe/Capture-the-Flag/blob/main/idek-2025/constructor.tar.gz)
 
 ## Approach
 
